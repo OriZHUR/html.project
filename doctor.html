@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- הגדרת סוג הקידוד של הדף ל-UTF-8 כדי לתמוך בתווים שונים, כולל עברית -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- הגדרת תגית ה-viewport כדי להתאים את הדף למכשירים ניידים בצורה נכונה -->
+    <title>הוספת תרגילים למשתמשים</title>
+    <!-- כותרת הדף שתופיע בכרטיסיית הדפדפן -->
+
+    <!-- קישור ל-Bootstrap לצורך עיצוב מהיר בעזרת ספריית CSS חיצונית -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- אלמנט container של Bootstrap לתחום את התוכן עם מרווח עליון (mt-5) -->
+        <h1>הוספת תרגילים למשתמשים</h1>
+        <!-- כותרת ראשית של הדף -->
+
+        <form id="exerciseForm" class="mt-4">
+            <!-- טופס להוספת תרגיל עם מזהה (ID) 'exerciseForm' ועם מרווח עליון (mt-4) -->
+            <div class="mb-3">
+                <!-- קבוצת שדות עם מרווח תחתון (mb-3) -->
+                <label for="username" class="form-label">בחר משתמש:</label>
+                <!-- תווית לבחירת המשתמש, מציינת את השדה עם ה-ID 'username' -->
+                <select id="username" class="form-select">
+                    <!-- שדה בחירה (dropdown) לבחירת משתמשים שייטענו מ-localStorage -->
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <!-- קבוצת שדות עם מרווח תחתון (mb-3) -->
+                <label for="day" class="form-label">בחר יום:</label>
+                <!-- תווית לבחירת היום, מציינת את השדה עם ה-ID 'day' -->
+                <select id="day" class="form-select">
+                    <!-- שדה בחירה (dropdown) לבחירת היום בשבוע -->
+                    <option value="Sunday">ראשון</option>
+                    <!-- אפשרות ליום ראשון -->
+                    <option value="Monday">שני</option>
+                    <!-- אפשרות ליום שני -->
+                    <option value="Tuesday">שלישי</option>
+                    <!-- אפשרות ליום שלישי -->
+                    <option value="Wednesday">רביעי</option>
+                    <!-- אפשרות ליום רביעי -->
+                    <option value="Thursday">חמישי</option>
+                    <!-- אפשרות ליום חמישי -->
+                    <option value="Friday">שישי</option>
+                    <!-- אפשרות ליום שישי -->
+                    <option value="Saturday">שבת</option>
+                    <!-- אפשרות ליום שבת -->
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <!-- קבוצת שדות עם מרווח תחתון (mb-3) -->
+                <label for="exercise" class="form-label">הכנס תרגיל:</label>
+                <!-- תווית לשדה הזנת התרגיל, מציינת את השדה עם ה-ID 'exercise' -->
+                <input type="text" id="exercise" class="form-control" placeholder="הכנס תרגיל">
+                <!-- שדה טקסט להזנת התרגיל, עם מזהה (ID) 'exercise' ועיצוב של Bootstrap ('form-control') -->
+            </div>
+            
+            <button type="button" class="btn btn-primary" onclick="addExercise()">הוסף תרגיל</button>
+            <!-- כפתור להוספת התרגיל, מעוצב ככפתור Bootstrap ('btn-primary'), שמפעיל את הפונקציה addExercise בלחיצה -->
+        </form>
+    </div>
+
+    <!-- קישור לקובץ JavaScript חיצוני המנהל את הפונקציות להוספת תרגילים -->
+    <script src="doctor.js"></script>
+</body>
+</html>

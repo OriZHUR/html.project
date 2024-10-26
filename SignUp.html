@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- הגדרת סוג הקידוד של הדף ל-UTF-8, כך שתמיכה בתווים שונים (כמו עברית) תהיה אפשרית -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- הגדרת תגית ה-viewport להתאמה למכשירים ניידים -->
+    <title>טופס הרשמה</title>
+    <!-- הגדרת כותרת הדף שתופיע בכרטיסייה של הדפדפן -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- קישור לקובץ CSS חיצוני לעיצוב הדף -->
+</head>
+<body>
+    <!-- טופס הרשמה -->
+    <form id="registrationForm">
+        <h1>טופס הרשמה</h1>
+        <!-- כותרת ראשית לטופס הרשמה -->
+
+        <!-- שדה שם משתמש -->
+        <label for="name">שם:</label>
+        <!-- תווית לשדה שם המשתמש -->
+        <input type="text" id="name" name="name">
+        <!-- שדה טקסט להזנת שם המשתמש -->
+
+        <!-- שדה סיסמה עם דרישות מיוחדות -->
+        <label for="pass">סיסמה:</label>
+        <!-- תווית לשדה הסיסמה -->
+        <input type="password" id="pass" name="pass">
+        <!-- שדה להזנת סיסמה -->
+        <span class="error" id="passwordError">
+            <!-- הודעת שגיאה לסיסמה לא תקינה -->
+            הסיסמה חייבת להיות באורך של 8 תווים לפחות ולכלול לפחות אות אחת ומספר אחד
+        </span>
+
+        <!-- שדה גיל -->
+        <label for="age">גיל:</label>
+        <!-- תווית לשדה גיל -->
+        <input type="number" id="age" name="age">
+        <!-- שדה מספר להזנת גיל המשתמש -->
+
+        <!-- שדה מין (רדיו כפתורים) -->
+        <p>מין</p>
+        <!-- כותרת קצרה עבור הבחירה במין -->
+        <input type="radio" id="M" name="gender" value="ז">
+        <!-- כפתור רדיו לבחירת מין "זכר" -->
+        <label for="M">ז</label>
+        <!-- תווית עבור אפשרות "זכר" -->
+        <input type="radio" id="F" name="gender" value="נ">
+        <!-- כפתור רדיו לבחירת מין "נקבה" -->
+        <label for="F">נ</label>
+        <!-- תווית עבור אפשרות "נקבה" -->
+
+        <!-- שדה בחירת רופאה (תיבות סימון) -->
+        <p>רופאה מתפל</p>
+        <!-- כותרת קצרה עבור בחירת רופאים -->
+        <input type="checkbox" id="DR1" name="DR1" value="דוקטור משה">
+        <!-- תיבת סימון לרופא "דוקטור משה" -->
+        <label for="DR1">דוקטור משה</label>
+        <!-- תווית עבור תיבת סימון זו -->
+        <input type="checkbox" id="DR2" name="DR2" value="דוקטור דוד">
+        <!-- תיבת סימון לרופא "דוקטור דוד" -->
+        <label for="DR2">דוקטור דוד</label>
+        <!-- תווית עבור תיבת סימון זו -->
+        <input type="checkbox" id="DR3" name="DR3" value="דוקטור מוריס">
+        <!-- תיבת סימון לרופא "דוקטור מוריס" -->
+        <label for="DR3">דוקטור מוריס</label>
+        <!-- תווית עבור תיבת סימון זו -->
+
+        <!-- שדה אימייל -->
+        <label for="email">מייל:</label>
+        <!-- תווית לשדה האימייל -->
+        <input type="email" id="email" name="email">
+        <!-- שדה להזנת כתובת דוא"ל עם ולידציה בסיסית -->
+        <span class="error" id="emailError">
+            <!-- הודעת שגיאה במקרה של אימייל לא תקין -->
+            המייל שהוזן אינו חוקי
+        </span>
+
+        <!-- שדה תמונה (כתובת URL לתמונה) -->
+        <label for="image">תמונה:</label>
+        <!-- תווית לשדה התמונה -->
+        <input type="url" id="image" name="image">
+        <!-- שדה להזנת כתובת URL לתמונה -->
+
+        <!-- כפתור שליחה עם בדיקת תקינות -->
+        <input type="button" value="שלח" onclick="validateForm()">
+        <!-- כפתור שליחה שמפעיל את הפונקציה validateForm לבדיקת תקינות הנתונים -->
+    </form>
+
+    <!-- קישור לקובץ JavaScript חיצוני -->
+    <script src="SignUp.js"></script>
+</body>
+</html>

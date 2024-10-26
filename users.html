@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- הגדרת סוג הקידוד של המסמך (UTF-8) לצורך תמיכה במגוון תווים -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- הגדרת תגית viewport כדי להתאים את התצוגה למכשירים ניידים -->
+    <title>רשימת משתמשים</title>
+    <!-- כותרת הדף שתופיע בכרטיסיית הדפדפן -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- קישור לקובץ CSS חיצוני לעיצוב הדף -->
+</head>
+<body>
+    <h1>משתמשים רשומים</h1>
+    <!-- כותרת הדף הראשית -->
+
+    <!-- אזור להצגת משתמשים רשומים -->
+    <div id="userCards"></div>
+    <!-- אלמנט DIV שבו יוצגו הכרטיסים של המשתמשים -->
+
+    <script>
+        // פונקציה להצגת משתמשים רשומים מ-localStorage
+        function displayUsers() {
+            const users = JSON.parse(localStorage.getItem('users')) || []; 
+            // קבלת רשימת המשתמשים מ-localStorage והמרתה ממחרוזת לאובייקט JSON
+            // אם אין משתמשים רשומים, תוחזר רשימה ריקה
+
+            const userCards = document.getElementById('userCards'); 
+            // קבלת אלמנט ה-DIV שבו יוצגו כרטיסי המשתמשים
+
+            // ניקוי התצוגה לפני הצגת המשתמשים
+            userCards.innerHTML = ''; 
+            // איפוס התוכן של ה-DIV כך שכל הצגת משתמשים חדשה תחליף את הקודמת
+
+            // בדיקה אם יש משתמשים רשומים
+            if (users.length === 0) {
+                userCards.innerHTML = '<p>אין משתמשים רשומים.</p>';
+                // אם אין משתמשים ברשימה, תוצג הודעה מתאימה
+                return; // סיום הפונקציה במידה ואין משתמשים
+            }
+
+            // יצירת כרטיס לכל משתמש והצגתו
+            users.forEach(user => {
+                const userCard = document.createElement('div');
+                // יצירת אלמנט DIV חדש לכרטיס המשתמש
+                userCard.classList.add('user-card');
+                // הוספת מחלקת CSS 'user-card' לכרטיס המשתמש לצורך עיצוב
+
+                // יצירת תוכן הכרטיס עם פרטי המשתמש
+                userCard.innerHTML = `
+                    <h3>שם: ${user.name}</h3>
+                    <!-- הצגת שם המשתמש -->
+                    <p>גיל: ${user.age}</p>
+                    <!-- הצגת גיל המשתמש -->
+                    <p>מין: ${user.gender}</p>
+                    <!-- הצגת מין המשתמש -->
+                    <p>רופאה מתפל: ${user.doctors.join(', ')}</p>
+                    <!-- הצגת רשימת הרופאים המטפלים, מופרדת בפסיקים -->
+                    <p>מייל: ${user.email}</p>
+                    <!-- הצגת כתובת הדוא"ל של המשתמש -->
+                    <p>סיסמה: ${user.password}</p>
+                    <!-- הצגת הסיסמה של המשתמש (לא מומלץ לחשוף סיסמה בצורה כזו!) -->
+                    <img src="${user.image}" alt="User Image" width="100">
+                    <!-- הצגת תמונת המשתמש -->
+                `;
+                
+                userCards.appendChild(userCard); 
+                // הוספת כרטיס המשתמש לאזור התצוגה בדף
+            });
+        }
+
+        // קריאת הפונקציה להצגת המשתמשים כשהדף נטען
+        window.onload = displayUsers;
+        // הגדרת הפונקציה displayUsers שתפעל באופן אוטומטי עם טעינת הדף
+    </script>
+</body>
+</html>

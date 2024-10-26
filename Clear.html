@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- הגדרת סוג הקידוד של הדף ל-UTF-8 כדי לתמוך בתווים שונים, כולל עברית -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- הגדרת תגית ה-viewport כדי להתאים את הדף למכשירים ניידים בצורה נכונה -->
+    <title>ניהול משתמשים</title>
+    <!-- כותרת הדף שתופיע בכרטיסיית הדפדפן -->
+</head>
+<body>
+    <h1>ניהול משתמשים</h1>
+    <!-- כותרת ראשית לדף המיועדת לניהול משתמשים -->
+
+    <!-- כפתור למחיקת כל המשתמשים -->
+    <button onclick="clearAllUsers()">מחק את כל המשתמשים</button>
+    <!-- כפתור שמפעיל את הפונקציה clearAllUsers בלחיצה, למחיקת רשימת המשתמשים -->
+
+    <!-- כפתור למחיקת כל הנתונים מ-localStorage -->
+    <button onclick="clearAllLocalStorage()">מחק את כל הנתונים מ-localStorage</button>
+    <!-- כפתור שמפעיל את הפונקציה clearAllLocalStorage בלחיצה, למחיקת כל הנתונים מ-localStorage -->
+
+    <script>
+        // פונקציה למחיקת כל המשתמשים מ-localStorage
+        function clearAllUsers() {
+            localStorage.removeItem('users');
+            // מחיקת פריט ה-'users' מ-localStorage (המכיל את כל רשימת המשתמשים)
+            alert('כל המשתמשים נמחקו בהצלחה!');
+            // הודעת הצלחה לאחר המחיקה
+        }
+
+        // פונקציה למחיקת כל הנתונים מ-localStorage
+        function clearAllLocalStorage() {
+            localStorage.clear();
+            // מחיקת כל הנתונים שנמצאים ב-localStorage
+            alert('כל הנתונים נמחקו בהצלחה!');
+            // הודעת הצלחה לאחר המחיקה של כל הנתונים
+        }
+    </script>
+</body>
+</html>

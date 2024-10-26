@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- הגדרת סוג הקידוד של הדף ל-UTF-8, כך שתמיכה בתווים שונים (כמו עברית) תהיה אפשרית -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- הגדרת תגית ה-viewport להתאמה למכשירים ניידים בצורה נכונה -->
+    <title>תרגילים לשבוע</title>
+    <!-- כותרת הדף שתופיע בכרטיסיית הדפדפן -->
+    
+    <!-- קישור ל-Bootstrap לצורך עיצוב מהיר בעזרת ספריית CSS חיצונית -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- קישור לקובץ CSS חיצוני לעיצוב מותאם אישית -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <!-- אלמנט container של Bootstrap לתחום את התוכן וליישר אותו למרכז -->
+        <h1>בחר יום</h1>
+        <!-- כותרת ראשית לעמוד שמזמינה את המשתמש לבחור יום -->
+
+        <div class="row">
+            <!-- שורה של כפתורים לבחירת הימים בשבוע -->
+            <div class="col-12 col-md-4 mb-3">
+                <!-- עמודה שתקבל את כל הרוחב במסכים קטנים ו-1/3 ממסכים בינוניים ומעלה -->
+                <button class="btn btn-primary w-100" onclick="showExercise('Sunday')">ראשון</button>
+                <!-- כפתור עם עיצוב של Bootstrap (btn-primary) שמפעיל את הפונקציה showExercise ליום ראשון -->
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <button class="btn btn-primary w-100" onclick="showExercise('Monday')">שני</button>
+                <!-- כפתור לבחירת יום שני -->
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <button class="btn btn-primary w-100" onclick="showExercise('Tuesday')">שלישי</button>
+                <!-- כפתור לבחירת יום שלישי -->
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <button class="btn btn-primary w-100" onclick="showExercise('Wednesday')">רביעי</button>
+                <!-- כפתור לבחירת יום רביעי -->
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <button class="btn btn-primary w-100" onclick="showExercise('Thursday')">חמישי</button>
+                <!-- כפתור לבחירת יום חמישי -->
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <button class="btn btn-primary w-100" onclick="showExercise('Friday')">שישי</button>
+                <!-- כפתור לבחירת יום שישי -->
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <button class="btn btn-primary w-100" onclick="showExercise('Saturday')">שבת</button>
+                <!-- כפתור לבחירת יום שבת -->
+            </div>
+        </div>
+        
+        <div id="exerciseDisplay" class="mt-4">
+            <!-- אזור להצגת התרגיל שנבחר -->
+            <h3>התרגיל ליום זה:</h3>
+            <!-- כותרת המשנה שתציג את הכותרת של התרגיל ליום הנבחר -->
+            <p id="exerciseText" class="lead">בחר יום כדי לראות את התרגיל שלך</p>
+            <!-- פסקה להצגת התרגיל. התוכן יתעדכן דינאמית כשייבחר יום -->
+        </div>
+    </div>
+
+    <!-- קישור לקובץ JavaScript חיצוני המנהל את הפונקציות להצגת התרגילים -->
+    <script src="exercises.js"></script>
+</body>
+</html>
